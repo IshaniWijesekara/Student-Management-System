@@ -1,0 +1,100 @@
+<!-- Content Header (Page header) -->
+
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-12">
+
+                <div class="card card-primary">
+                   
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col col-12">
+                                <form #frmSections="ngForm" (ngSubmit)="saveSection()">
+                                 
+                                    <p class="form-group">
+                                        <label for="txtDescription">Section Name</label>
+                                        <input  class="form-control" [(ngModel)]="selectedSection.sectionName" [ngModelOptions]="{standalone: true}">
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Lecture Name</label>
+                                                <select  [(ngModel)]="selectedSection.lecture"
+                                                         [ngModelOptions]="{standalone: true}"
+
+                                                        name="lecture" required id="lecture"
+                                                        class="form-control form-control">
+                                                    <option *ngFor="let lecture of lectureList"  [ngValue]="lecture.lectureName">
+                                                        {{lecture.lectureName}}
+                                                    </option>
+                                                </select>
+                                               
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Class Name</label>
+                                                    <select [(ngModel)]="selectedSection.classes"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            name="classes" required id="classes"
+                                                            class="form-control form-control">
+                                                        <option *ngFor="let classes of classList" [ngValue]="classes.className">
+                                                            {{classes.className}}
+                                                        </option>
+                                                    </select>
+                                                   
+                                                    </div>
+                                                </div>
+                                        </div>
+
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        &nbsp;
+                                        <button  type="button" class="btn btn-warning">Clear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+
+            <div class="col-md-12 col-12">
+  
+          <table id="tblItems" class="table table-active table-hover">
+            <thead style="background-color: #001F3F;color: white">
+            <tr>
+              <th>Section ID</th>
+              <th>Section Name</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let section of sections"
+            (click)="selectSection(section)" [class.selected]="section==selectedSection">
+            <td>{{section.sectionId}}</td>
+            <td>{{section.sectionName}}</td>
+            <td>
+                <i (click)="deleteSection(section.sectionId)" class="fa fa-trash fa-2x"></i>
+            </td>
+            </tr>
+            </tbody>
+    
+          </table>
+         
+        </div>
+           
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

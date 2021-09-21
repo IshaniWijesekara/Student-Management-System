@@ -1,0 +1,234 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="studentForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Student Attendance Reports</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="margin-left: 20px">Class Type</label>
+                                                <select  class="example-full-width" id="employeeDesignation2" formControlName="classType" style="width: 270px;margin-left: 20px">
+                                                    <option *ngFor="let item of classModel" value='{{item.classId}}'>
+                                                        {{item.className}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;">
+                                                <label style="margin-left: 20px">From</label>
+                                                <input type="date" formControlName="fromDate">
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;margin-left: -50px">
+                                                <label style="margin-left: 20px">To</label>
+                                                <input type="date" formControlName="toDate">
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 10px; margin-left: 50px">
+                                                <button type="button" class="btn btn-primary" style="margin-left: 105px" (click)="search1()">PRINT</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="margin-left: 20px">Class Type</label>
+                                                <select  class="example-full-width" id="employeeDesignation2" formControlName="classType" style="width: 270px;margin-left: 20px">
+                                                    <option *ngFor="let item of classModel" value='{{item.classId}}'>
+                                                        {{item.className}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;">
+                                                <label style="margin-left: 20px">From</label>
+                                                <input type="date" formControlName="fromDate1">
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;margin-left: -50px">
+                                                <label style="margin-left: 20px">To</label>
+                                                <input type="date" formControlName="toDate1">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label style="margin-left: -100px;margin-top: 20px">Student Id</label>
+                                                <input type="text" formControlName="studentId">
+                                                <button type="button" (click)="search2()" style="margin-left: 20px" class="btn btn-primary">PRINT</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="margin-left: 20px">Class Type</label>
+                                                <select  class="example-full-width" id="employeeDesignation2" formControlName="classType" style="width: 270px;margin-left: 20px">
+                                                    <option *ngFor="let item of classModel" value='{{item.classId}}'>
+                                                        {{item.className}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;">
+                                                <label style="margin-left: 20px">From</label>
+                                                <input type="date" formControlName="fromDate3">
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 20px;margin-left: -50px">
+                                                <label style="margin-left: 20px">To</label>
+                                                <input type="date" formControlName="toDate3">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label style="margin-left: -100px;margin-top: 20px">In Time</label>
+                                                <input type="time" formControlName="inTime">
+                                                <button type="button" (click)="search3()"  style="margin-left: 110px" class="btn btn-primary">PRINT</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Employee Attendance Reports</h5>
+                                        </div>
+                                        <div class="row" style="margin-top: 20px">
+                                            <div class="col-md-4">
+                                                <label style="margin-left: 20px">From</label>
+                                                <input type="date" formControlName="fromDate4">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label style="margin-left: 20px">To</label>
+                                                <input type="date" formControlName="toDate4">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="button" (click)="search4()" style="margin-left: 200px" class="btn btn-primary">PRINT</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Class Payment Income Report</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label style="margin-left: 20px">Class Type</label>
+                                                <select  class="example-full-width" id="employeeDesignation2" formControlName="classType" style="width: 270px;margin-left: 20px">
+                                                    <option *ngFor="let item of classModel" value='{{item.classId}}'>
+                                                        {{item.className}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="button" (click)="search5()" style="margin-left: 200px" class="btn btn-primary">PRINT</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Daily Profit Report</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="form-group" style="width: 50%;">
+                                                        <input type="date" class="form-control" name="txtBirthDay" formControlName="orderDateSec"  id="txtBirthDay" placeholder="Enter Birthday">
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary" (click)="printDailyProfit()">Print</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Daily Orders Report</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="form-group" style="width: 50%;">
+                                                        <input type="date" class="form-control" name="txtBirthDay" formControlName="orderDate" id="txtBirthDay" placeholder="Enter Birthday">
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary"  (click)="printDailyOrders()">Print</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <br>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Students Daily Orders</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="row">
+                                                    <div class="form-group" style="width: 50%;">
+                                                        <input type="date" class="form-control" name="txtBirthDay" formControlName="orderDateStudent"  id="txtBirthDay" placeholder="Enter Birthday">
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary" (click)="printDailyStudentsOrders()">Print</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

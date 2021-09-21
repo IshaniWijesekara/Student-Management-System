@@ -1,0 +1,139 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="studentForm">
+                            <!--View Payment Details-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger" *ngIf="type === 'view' && type != 'update'">
+                                            <h4 class="card-title">View Payment Details</h4>
+                                        </div>
+                                        <div class="card-header card-header-danger"  *ngIf="type === 'update' && type != 'view'">
+                                            <h4 class="card-title">Update Payment Details</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Id" [(ngModel)]="paymentModel.studentId" type="text" formControlName="studentId1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Name" [(ngModel)]="paymentModel.name" type="text" formControlName="studentName1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student NIC" [(ngModel)]="paymentModel.nic" type="text" formControlName="studentNIC1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Payment Type" [(ngModel)]="paymentModel.type" formControlName="type" type="text" class="example-full-width" id="type" style="width: 360px" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                      <input matInput placeholder="Month" [(ngModel)]="paymentModel.month" formControlName="month" type="text"  class="example-full-width" id="designation" style="width: 360px" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Payment Date" [(ngModel)]="paymentModel.paymentDate" type="date" formControlName="date" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Fee" [(ngModel)]="paymentModel.fee" type="text" formControlName="fee" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Id" type="text" [(ngModel)]="paymentModel.studentId" formControlName="studentId1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Name" type="text" [(ngModel)]="paymentModel.name" formControlName="studentName1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student NIC" type="text" [(ngModel)]="paymentModel.nic" formControlName="studentNIC1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                                <div class="col-md-4">
+                                                        <select formControlName="type"  class="example-full-width"  [(ngModel)]="paymentModel.type"  id="type1" style="width: 360px">
+                                                            <option value="" selected disabled hidden>Choose here</option>
+                                                            <option value="Registration Fee">Registration Fee</option>
+                                                            <option value="Monthly Fee">Monthly Fee</option>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <select formControlName="month"  class="example-full-width"  [(ngModel)]="paymentModel.month"  id="designation1" style="width: 360px">
+                                                            <option value="" selected disabled hidden>Choose here</option>
+                                                            <option value="January">January</option>
+                                                            <option value="February">February</option>
+                                                            <option value="March">March</option>
+                                                            <option value="April">April</option>
+                                                            <option value="May">May</option>
+                                                            <option value="June">June</option>
+                                                            <option value="July">July</option>
+                                                            <option value="August">August</option>
+                                                            <option value="September">September</option>
+                                                            <option value="October">October</option>
+                                                            <option value="November">November</option>
+                                                            <option value="December">December</option>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Payment Date" [(ngModel)]="paymentModel.paymentDate" type="date" formControlName="date" >
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Fee" [(ngModel)]="paymentModel.fee" type="text" formControlName="fee" >
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                            <button *ngIf="type === 'update' && type != 'view'" type="submit" class="btn btn-success mr-2" (click)="update()">Submit</button>
+                                            <button *ngIf="type === 'update' && type != 'view'" class="btn btn-light" (click)="cancel()">Cancel</button>
+                                            <button *ngIf="type === 'view' && type != 'update'" class="btn btn-light" (click)="back()">Back</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

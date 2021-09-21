@@ -1,0 +1,115 @@
+<div class="main-content" style="margin-top: 5px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" *ngIf="type === 'view' && type != 'update'">
+                        <h4 class="card-title">View Attendance Details</h4>
+                    </div>
+                    <div class="card-header card-header-danger"  *ngIf="type === 'update' && type != 'view'">
+                        <h4 class="card-title">Update Attendance Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]="attendanceForm">
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Employee ID</label>
+                                        <input type="text" class="form-control"  [(ngModel)]="id" formControlName="id" id="sid" placeholder="Enter Employee Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Employee Name</label>
+                                        <input type="text" class="form-control" id="date" [(ngModel)]="dto.user" formControlName="name" placeholder="Enter Name" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">User Role</label>
+                                        <input type="text" class="form-control"  id="exampleInputEmail1" [(ngModel)]="dto.role" formControlName="role" placeholder="Enter User Role" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Date</label>
+                                        <input type="date" class="form-control" id="exampleInputPassword1" [(ngModel)]="dto.date" formControlName="date" placeholder="Date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">In Time</label>
+                                        <input type="text" class="form-control"  id="lastName" formControlName="inTime" [(ngModel)]="dto.inTime" placeholder="Enter In Time" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Out Time</label>
+                                        <input type="text" class="form-control" [(ngModel)]="dto.outTime" formControlName="outTime" id="nic" placeholder="Out Time" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Employee ID</label>
+                                        <input type="text" class="form-control"  [(ngModel)]="id" formControlName="sid" id="sid1" placeholder="Enter Employee Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Employee Name</label>
+                                        <input type="text" class="form-control" id="date1" [(ngModel)]="dto.user" formControlName="name" placeholder="Enter Employee Name" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">User Role</label>
+                                        <input type="text" class="form-control"  id="exampleInputEmail2" [(ngModel)]="dto.role" formControlName="role" placeholder="Enter User Role" >
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Date</label>
+                                        <input type="date" class="form-control" id="exampleInputPassword02" [(ngModel)]="dto.date" formControlName="date" placeholder="Date" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">In Time</label>
+                                        <input type="text" class="form-control"  id="lastName1" formControlName="inTime" [(ngModel)]="dto.inTime" placeholder="Enter In Time">
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Out Time</label>
+                                        <input type="text" class="form-control" [(ngModel)]="dto.outTime" formControlName="outTime" id="nic1" placeholder="Out Time" >
+                                    </div>
+                                </div>
+                            </div>
+                            <button *ngIf="type === 'update' && type != 'view'" type="submit" class="btn btn-success mr-2" (click)="update()">Submit</button>
+                            <button *ngIf="type === 'update' && type != 'view'" class="btn btn-light" (click)="cancel()">Cancel</button>
+                            <button *ngIf="type === 'view' && type != 'update'" class="btn btn-light" (click)="back()">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

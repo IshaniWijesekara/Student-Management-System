@@ -1,0 +1,198 @@
+<div class="main-content" style="margin-top: 5px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger"  *ngIf="type === 'view' && type != 'update'">
+                        <h4 class="card-title">View Student Details</h4>
+                    </div>
+                    <div class="card-header card-header-danger"   *ngIf="type === 'update' && type != 'view'">
+                        <h4 class="card-title">Update Student Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="forms-sample" [formGroup]="studentForm">
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">First Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.firstName" formControlName="firstName" id="exampleInputEmail1" placeholder="Enter First Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Middle Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.middleName" formControlName="middleName" id="exampleInputPassword1" placeholder="Middle Name" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Last Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.lastName" formControlName="lastName" id="lastName" placeholder="Enter Last Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">NIC</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.nic" formControlName="nic" id="nic" placeholder="NIC" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">School Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.schoolName" formControlName="schoolName" id="addressLine1" placeholder="Enter School Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Address Line</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.address" formControlName="address" id="addressLine2" placeholder="Enter Address" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Guardian Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.gurdianName" formControlName="guradianName" id="contactNo1" placeholder="Enter Guardian Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Guardian Contact No</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.gurdianContact" formControlName="guardianContactNo" id="contactNo2" placeholder="Enter Guardian Contact No" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" class="form-control" [(ngModel)]="studentModel.email"  formControlName="email" id="email" placeholder="Enter Email" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Birthday</label>
+                                            <input type="date" class="form-control" [(ngModel)]="studentModel.birthday" formControlName="birthday" id="bod" placeholder="Enter Birthday" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Registration No</label>
+                                        <input type="text" class="form-control" [(ngModel)]="studentModel.registrationId" formControlName="regNo" id="registrationNo" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Registration Date</label>
+                                        <input type="date" class="form-control" [(ngModel)]="studentModel.regDate" formControlName="regDate" id="registrationDate" placeholder="Enter Registration Date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                                    <div class="row"  *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <br>
+                                                <label for="exampleInputEmail1">First Name</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.firstName" formControlName="firstName" id="exampleInputEmail11" placeholder="Enter First Name" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6" style="margin-top: 20px">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Middle Name</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.middleName" formControlName="middleName" id="exampleInputPassword11" placeholder="Middle Name" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row"  *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Last Name</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.lastName" formControlName="lastName" id="lastName1" placeholder="Enter Last Name" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">NIC</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.nic" formControlName="nic" id="nic1" placeholder="NIC" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">School Name</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.schoolName" formControlName="schoolName" id="addressLine11" placeholder="Enter School Name" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Address Line</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.address" formControlName="address" id="addressLine12" placeholder="Enter Address" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Guardian Name</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.gurdianName" formControlName="guradianName" id="contactNo11" placeholder="Enter Guardian Name" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Guardian Contact No</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.gurdianContact" formControlName="guardianContactNo" id="contactNo21" placeholder="Enter Guardian Contact No" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row"  *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email</label>
+                                                <input type="email" class="form-control" [(ngModel)]="studentModel.email" formControlName="email" id="email1" placeholder="Enter Email" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Birthday</label>
+                                                    <input type="date" class="form-control" [(ngModel)]="studentModel.birthday" formControlName="birthday" id="bod1" placeholder="Enter Birthday" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Registration No</label>
+                                                <input type="text" class="form-control" [(ngModel)]="studentModel.registrationId" formControlName="regNo" id="registrationNo1" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Registration Date</label>
+                                                <input type="date" class="form-control" [(ngModel)]="studentModel.regDate" formControlName="regDate" id="registrationDate1" placeholder="Enter Registration Date" >
+                                            </div>
+                                        </div>
+                                    </div>
+                            <button type="submit" class="btn btn-success mr-2" (click)="update(studentModel.studentId)">Submit</button>
+                            <button class="btn btn-light" (click)="cancel()">Cancel</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

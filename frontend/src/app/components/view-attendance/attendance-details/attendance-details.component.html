@@ -1,0 +1,146 @@
+<div class="main-content" style="margin-top: 5px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" *ngIf="type === 'view' && type != 'update'">
+                        <h4 class="card-title">View Attendance Details</h4>
+                    </div>
+                    <div class="card-header card-header-danger"  *ngIf="type === 'update' && type != 'view'">
+                        <h4 class="card-title">Update Attendance Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]="attendanceForm">
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student ID</label>
+                                        <input type="text" class="form-control"  [(ngModel)]="attendanceSearchModel.studentId" formControlName="sid" id="sid" placeholder="Enter Student Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Date</label>
+                                        <input type="date" class="form-control" id="date" [(ngModel)]="attendanceSearchModel.date" formControlName="date" placeholder="Enter Date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student First Name</label>
+                                        <input type="text" class="form-control"  id="exampleInputEmail1" [(ngModel)]="attendanceSearchModel.firstName" formControlName="firstName" placeholder="Enter First Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Student Middle Name</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="attendanceSearchModel.middleName" formControlName="middleName" placeholder="Middle Name" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student Last Name</label>
+                                        <input type="text" class="form-control"  id="lastName" formControlName="lastName" [(ngModel)]="attendanceSearchModel.lastName" placeholder="Enter Last Name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Student NIC</label>
+                                        <input type="text" class="form-control" [(ngModel)]="attendanceSearchModel.nic" formControlName="nic" id="nic" placeholder="NIC" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">In Time</label>
+                                        <input type="text" class="form-control" [(ngModel)]="attendanceSearchModel.inTime" formControlName="inTime"  id="inTime" placeholder="Enter InTime" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Out Time</label>
+                                        <input type="text" class="form-control" id="outTime" [(ngModel)]="attendanceSearchModel.outTime" formControlName="outTime" placeholder="Enter Out Time" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student ID</label>
+                                        <input type="text" class="form-control"  [(ngModel)]="attendanceSearchModel.studentId" formControlName="sid" id="sid1" placeholder="Enter Student Id" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Date</label>
+                                        <input type="date" class="form-control" id="date1" [(ngModel)]="attendanceSearchModel.date" formControlName="date1" placeholder="Enter Date" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student First Name</label>
+                                        <input type="text" class="form-control"  id="exampleInputEmail2" [(ngModel)]="attendanceSearchModel.firstName" formControlName="firstName" placeholder="Enter First Name" >
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Student Middle Name</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword02" [(ngModel)]="attendanceSearchModel.middleName" formControlName="middleName" placeholder="Middle Name" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">Student Last Name</label>
+                                        <input type="text" class="form-control"  id="lastName1" formControlName="lastName" [(ngModel)]="attendanceSearchModel.lastName" placeholder="Enter Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Student NIC</label>
+                                        <input type="text" class="form-control" [(ngModel)]="attendanceSearchModel.nic" formControlName="nic" id="nic1" placeholder="NIC" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <br>
+                                        <label for="exampleInputEmail1">In Time</label>
+                                        <input type="time" class="form-control" [(ngModel)]="attendanceSearchModel.inTime" formControlName="inTime"  id="inTime1" placeholder="Enter InTime" >
+                                    </div>
+                                </div>
+                                <div class="col-6" style="margin-top: 20px">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Out Time</label>
+                                        <input type="time" class="form-control" id="outTime1" [(ngModel)]="attendanceSearchModel.outTime" formControlName="outTime" placeholder="Enter Out Time" >
+                                    </div>
+                                </div>
+                            </div>
+                            <button *ngIf="type === 'update' && type != 'view'" type="submit" class="btn btn-success mr-2" (click)="update()">Submit</button>
+                            <button *ngIf="type === 'update' && type != 'view'" class="btn btn-light" (click)="cancel()">Cancel</button>
+                            <button *ngIf="type === 'view' && type != 'update'" class="btn btn-light" (click)="back()">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="lectureForm">
+                            <div class="row">
+                            </div>
+                            <br>
+
+                            <!--Update New Lecturer Details-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger" *ngIf="type === 'view' && type != 'update'">
+                                            <h4 class="card-title">View Lecturer Details</h4>
+                                        </div>
+                                        <div class="card-header card-header-danger"  *ngIf="type === 'update' && type != 'view'">
+                                            <h4 class="card-title">Update Lecturer Details</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4" *ngIf="type === 'update' && type != 'view'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Lecturer Name" type="text" formControlName="name" [(ngModel)]="lecturerModel.name">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4" *ngIf="type === 'update' && type != 'view'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Email" type="text" formControlName="email" [(ngModel)]="lecturerModel.email">
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.email.touched && FormControls.email.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.required" class="errors">Email is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.pattern" class="errors">Please enter a valid Email</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" *ngIf="type === 'update' && type != 'view'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="NIC" type="text" formControlName="nic" [(ngModel)]="lecturerModel.nic">
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.nic.touched && FormControls.nic.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.required" class="errors">NIC is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.pattern" class="errors">Please enter a valid NIC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Address" type="text" formControlName="address" [(ngModel)]="lecturerModel.address">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Contact No" type="text" formControlName="contactNo" [(ngModel)]="lecturerModel.contactNo">
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.contactNo.touched && FormControls.contactNo.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.required" class="errors">Contact No is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.pattern" class="errors">Please enter a valid Contact No</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select  class="example-full-width" id="employeeDesignation" formControlName="subject" style="width: 360px;margin-top: 10px" [(ngModel)]="lecturerModel.subject">
+                                                        <option *ngFor="let item of subjectModel" value='{{item.name}}'>
+                                                            {{item.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!--View Lecturer Details-->
+                                            <div class="row">
+                                                <div class="col-md-4"  *ngIf="type === 'view' && type != 'update'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Lecturer Name" type="text" formControlName="name" [(ngModel)]="lecturerModel.name" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4"  *ngIf="type === 'view' && type != 'update'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Email" type="text" formControlName="email" [(ngModel)]="lecturerModel.email" readonly>
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.email.touched && FormControls.email.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.required" class="errors">Email is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.pattern" class="errors">Please enter a valid Email</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4"  *ngIf="type === 'view' && type != 'update'">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="NIC" type="text" formControlName="nic" [(ngModel)]="lecturerModel.nic" readonly>
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.nic.touched && FormControls.nic.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.required" class="errors">NIC is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.pattern" class="errors">Please enter a valid NIC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row"  *ngIf="type === 'view' && type != 'update'">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Address" type="text" formControlName="address" [(ngModel)]="lecturerModel.address" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Contact No" type="text" formControlName="contactNo" [(ngModel)]="lecturerModel.contactNo" readonly>
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.contactNo.touched && FormControls.contactNo.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.required" class="errors">Contact No is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.pattern" class="errors">Please enter a valid Contact No</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select  class="example-full-width" id="employeeDesignations" formControlName="subject" style="width: 360px;margin-top: 10px" [(ngModel)]="lecturerModel.subject" readonly disabled>
+                                                        <option *ngFor="let item of subjectModel" value='{{item.name}}'>
+                                                            {{item.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button *ngIf="type === 'update' && type != 'view'"  (click)="updateDetails()" class="btn btn-primary btn-xs" color="primary"><i class="fa fa-edit"></i>Update Details</button>
+                                            <button *ngIf="type === 'update' && type != 'view'" class="btn btn-light" (click)="cancel()">Cancel</button>
+                                            <button *ngIf="type === 'view' && type != 'update'" class="btn btn-light" (click)="back()">Back</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

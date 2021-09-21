@@ -1,0 +1,75 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="row" style="margin-left: 10px">
+                                    <button class="btn btn-success btn-xs"  (click)="addNewUser()" color="primary"><i class="fa fa-edit"></i>Add New User</button>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        User Id
+                                                    </th>
+                                                    <th>
+                                                        Full Name
+                                                    </th>
+                                                    <th>
+                                                        NIC
+                                                    </th>
+                                                    <th>
+                                                        Email
+                                                    </th>
+                                                    <th>
+                                                        Contact No
+                                                    </th>
+                                                    <th>
+                                                        Address
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of userModel">
+                                                        <td>
+                                                            {{item.userId}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.name}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.nic}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.email}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.contactNo}}
+                                                        </td>
+                                                        <th>
+                                                            {{item.address}}
+                                                        </th>
+                                                        <td style="margin-left: -10px">
+                                                            <button class="btn btn-primary btn-xs"  (click)="updateUser(item.userId)" color="primary"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-xs" (click)="viewUser(item.userId)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

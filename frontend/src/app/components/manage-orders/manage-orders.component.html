@@ -1,0 +1,147 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+     
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Place Order</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-12">
+
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title text-center"><label class="text-left" #orderDate>{{today | date}}</label></h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-12">
+                  <p class="form-group">
+                    <label>Order ID</label>
+                    <input class="form-control" #orderId>
+                  </p>
+
+                  <p class="form-group">
+                    <label >Student ID</label>
+                    <select class="form-control" [(ngModel)]="selectedStudent">
+                      <option *ngFor="let student of studentss" [ngValue]="student">{{student.studentId}}</option>
+                    </select>
+                  </p>
+
+                  <p class="form-group">
+                    <label>Student Name</label>
+                    <input class="form-control" id="studentName" value="{{selectedStudent.firstName}}" readonly>
+                  </p>
+
+                  <p class="form-group">
+                    <label>Item ID</label>
+                    <select class="form-control" [(ngModel)]="selectedItem" #itemId>
+                      <option *ngFor="let item of items" [ngValue]="item">{{item.itemCode}}</option>
+                    </select>
+                  </p>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="form-group">
+                        <label>Description</label>
+                        <input class="form-control" #description value="{{selectedItem.description}}" readonly>
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="form-group">
+                        <label>QTY On Hand</label>
+                        <input class="form-control" #qtyOnHand value="{{selectedItem.qty}}" readonly>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="form-group">
+                        <label>Unit Price</label>
+                        <input class="form-control" #price value="{{selectedItem.unitPrice}}" readonly >
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="form-group">
+                        <label>QTY</label>
+                        <input class="form-control" #qty id="qty">
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button type="submit" class="btn btn-default" (click)="addItems(qty.value)" id="btnAdd">Add</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <div class="col-md-6 col-12">
+
+        <table id="tblItems" class="table table-active table-hover">
+          <thead style="background-color: #001F3F;color: white">
+          <tr>
+            <th>Item ID</th>
+            <th>Description</th>
+            <th>Unit Price</th>
+            <th>QTY</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let orderDetail of orderDetails">
+            <td>{{orderDetail.itemDTO.itemCode}}</td>
+            <td>{{orderDetail.itemDTO.description}}</td>
+            <td>{{orderDetail.itemDTO.unitPrice}}</td>
+            <td>{{orderDetail.qty}}</td>
+            <td>{{orderDetail.totalPrice}}</td>
+            <td>
+              <i (click)="removeItem(item)" class="fa fa-trash fa-1x"></i>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <!-- <tr>
+            <td colspan="4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </td>
+          </tr> -->
+          </tfoot>
+        </table>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="form-group">
+              <label>Final Total</label>
+              <input class="form-control" readonly id="finalTotal">
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary" (click)="placeOrder(orderDate.textContent,orderId.value)">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>

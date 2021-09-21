@@ -1,0 +1,121 @@
+<div class="main-content" style="margin-top: 13px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" *ngIf="type === 'view' && type != 'update'">
+                        <h4 class="card-title">View Profile</h4>
+                    </div>
+                    <div class="card-header card-header-danger" *ngIf="type === 'update' && type != 'view'">
+                        <h4 class="card-title">Edit Profile</h4>
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]="userForm">
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Full Name" formControlName="fullName" [(ngModel)]="userDTO.name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="NIC" formControlName="nic" [(ngModel)]="userDTO.nic">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Email address" type="email" formControlName="email" [(ngModel)]="userDTO.email">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Contact No" type="text" formControlName="contactNo" [(ngModel)]="userDTO.contactNo">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address" type="text" formControlName="address" [(ngModel)]="userDTO.address">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'update' && type != 'view'">
+                                <div class="col-md-6">
+                                    <select  class="example-full-width" id="employeeDesignation" formControlName="userRole" style="width: 360px;margin-top: 10px" [(ngModel)]="userDTO.userRoleCode">
+                                        <option *ngFor="let item of userRoles" value='{{item.name}}'>
+                                            {{item.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Full Name" formControlName="fullName" [(ngModel)]="userDTO.name" readonly>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="NIC" formControlName="nic" [(ngModel)]="userDTO.nic" readonly>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Email address" type="email" formControlName="email" [(ngModel)]="userDTO.email" readonly>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Contact No" type="text" formControlName="contactNo" [(ngModel)]="userDTO.contactNo" readonly>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Address" type="text" formControlName="address" [(ngModel)]="userDTO.address" readonly>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="type === 'view' && type != 'update'">
+                                <div class="col-md-6">
+                                    <select  class="example-full-width" id="employeeDesignation" formControlName="userRole" style="width: 360px;margin-top: 10px" [(ngModel)]="userDTO.userRoleCode" readonly>
+                                        <option *ngFor="let item of userRoles" value='{{item.name}}'>
+                                            {{item.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button  class="btn btn-light" (click)="back()">Back</button>
+                                    <button *ngIf="type === 'update' && type != 'view'" mat-raised-button type="submit" class="btn btn-success pull-right" (click)="saveProfile()">Save Profile</button>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

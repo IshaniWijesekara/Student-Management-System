@@ -1,0 +1,104 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="studentForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student Id" type="text" formControlName="studentId">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student Name" type="text" formControlName="name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Student NIC" type="text"  formControlName="nic">
+                                        </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-primary"  (click)="onSubmitSearch()">Search</button>
+                                    <button type="button" class="btn btn-success"  (click)="onAdd()">New Student</button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                       Student Id
+                                                    </th>
+                                                    <th>
+                                                      Student Name
+                                                    </th>
+                                                    <th>
+                                                       NIC
+                                                    </th>
+                                                    <th>
+                                                        School Name
+                                                    </th>
+                                                    <th>
+                                                       Contact No
+                                                    </th>
+                                                    <th>
+                                                        Status
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of studentModel ">
+                                                        <td>
+                                                            {{item.studentId}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.firstName + " " + item.middleName +" "+item.lastName}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.nic}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.schoolName}}
+                                                        </td>
+                                                        <td>
+                                                           {{item.gurdianContact}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.status}}
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-primary btn-xs" (click)="updateStudent(item.studentId)" color="primary"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-xs" (click)="viewStudent(item.studentId)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                            <button class="btn btn-danger btn-xs" (click)="delete(item.studentId)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

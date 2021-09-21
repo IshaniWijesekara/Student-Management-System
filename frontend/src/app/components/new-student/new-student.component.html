@@ -1,0 +1,200 @@
+<div class="col-md-12 grid-margin stretch-card" style="margin-top: -10px">
+    <div class="card">
+        <div class="card-body">
+            <form class="forms-sample" #frmStudents="ngForm" (ngSubmit)="saveStudent()">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <br>
+                            <label>Student ID</label>
+                            <input disabled type="text" class="form-control" for name="txtStudentId" [(ngModel)]="selectedStudent.studentId" id="txtStudentId">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <br>
+                            <label>First Name</label>
+                            <input type="text" class="form-control" name="txtFirstName" [(ngModel)]="selectedStudent.firstName" id="txtFirstName" placeholder="Enter First Name">
+                            
+                        </div>
+                    </div>
+                    <div class="col-6" style="margin-top: 20px">
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" class="form-control" name="txtMiddleName" [(ngModel)]="selectedStudent.middleName" id="txtMiddleName" placeholder="Middle Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" name="txtLastName" [(ngModel)]="selectedStudent.lastName" id="txtLastName" placeholder="Enter Last Name">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>NIC</label>
+                            <input type="text" class="form-control" name="txtNic" [(ngModel)]="selectedStudent.nic" id="txtNic"  placeholder="NIC">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>School Name</label>
+                            <input type="text" class="form-control" name="txtSchool" [(ngModel)]="selectedStudent.schoolName" id="txtSchool" placeholder="Enter School Name">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Address Line</label>
+                            <input type="text" class="form-control" name="txtSchool" [(ngModel)]="selectedStudent.address" id="txtSchool" placeholder="Enter Address">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Guardian Name</label>
+                            <input type="text" class="form-control" name="txtSchool" [(ngModel)]="selectedStudent.gurdianName" id="txtSchool" placeholder="Enter Guardian Name">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Guardian Contact No</label>
+                            <input type="text" class="form-control" name="txtGcontact" [(ngModel)]="selectedStudent.gurdianContact" id="txtGcontact" placeholder="Enter Guardian Contact No">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="txtEmail" [(ngModel)]="selectedStudent.email" id="txtEmail" placeholder="Enter Email">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Birthday</label>
+                                <input type="date" class="form-control" name="txtBirthDay" [(ngModel)]="selectedStudent.birthday" id="txtBirthDay" placeholder="Enter Birthday">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Class Name</label>
+                            <select [(ngModel)]="selectedStudent.classes"
+                                    disabled="{{classDisable}}"
+                                    aria-disabled="true"
+                                    name="classes" required id="classes"
+                                    class="form-control form-control">
+                                <option *ngFor="let classes of classList" [ngValue]="classes.className">
+                                    {{classes.className}}
+                                </option>
+                            </select>
+                           
+                            </div>
+                        </div>
+                    <div class="col-6">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Section Name</label>
+                                <select [(ngModel)]="selectedStudent.sectionName"
+                                        disabled="{{sectionDisable}}"
+                                        aria-disabled="true"
+                                        name="section" required id="section"
+                                        class="form-control form-control">
+                                    <option *ngFor="let section of sectionList"  [ngValue]="section.sectionName">
+                                        {{section.sectionName}}
+                                    </option>
+                                </select>
+                               
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Lecture Name</label>
+                            <select  [(ngModel)]="selectedStudent.lecture"
+                                     disabled="{{lecDisable}}"
+                                     aria-disabled="true"
+                                    name="lecture" required id="lecture"
+                                    class="form-control form-control">
+                                <option *ngFor="let lecture of lectureList"  [ngValue]="lecture.contactNo">
+                                    {{lecture.lectureName}}
+                                </option>
+                            </select>
+                           
+                            </div>
+                        </div>
+                    </div>
+              
+                
+                <br>
+                <button type="submit" class="btn btn-success mr-2">Submit</button>
+                <button class="btn btn-light" (click)="clear()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="card card-plain">
+        <div class="card-header card-header-danger">
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="tblStudent">
+                    <thead class="">
+                        <th>
+                            Student ID
+                        </th>
+                        <th>
+                           First Name
+                        </th>
+                        <th>
+                           Middle Name
+                         </th>
+                         <th>
+                            Last Name
+                          </th>
+                        <th>
+                           NIC
+                        </th>
+                        <th>
+                            Address
+                         </th>
+                        <th>
+                            Gurdian Name
+                        </th>
+                        <th>
+                           Status
+                        </th>
+                       
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students"
+                        (click)="selectStudent(student)" [class.selected]="student==selectedStudent">
+                        <td>{{student.studentId}}</td>
+                        <td>{{student.firstName}}</td>
+                        <td>{{student.middleName}}</td>
+                        <td>{{student.lastName}}</td>
+                        <td>{{student.nic}}</td>
+                        <td>{{student.address}}</td>
+                        <td>{{student.gurdianName}}</td>
+                        <td>{{student.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

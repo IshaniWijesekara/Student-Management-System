@@ -1,0 +1,180 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="studentForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student Id" type="text" formControlName="studentId">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student Name" type="text" formControlName="name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <mat-form-field class="example-full-width" style="width: 50%;">
+                                            <input matInput placeholder="Student NIC" type="text" style="width: 50%;" formControlName="nic">
+                                        </mat-form-field>
+                                        <button type="button" class="btn btn-primary"  (click)="onSubmitSearch()">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!--Add New Student Payment Details-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Add Payment Details</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input (change)="getStudentDetails()" matInput placeholder="Student Id" type="text" formControlName="studentId1">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Name" type="text" formControlName="studentName1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student NIC" type="text" formControlName="studentNIC1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                        <select formControlName="type"  class="example-full-width" id="type" style="width: 360px">
+                                                            <option value="" selected disabled hidden>Choose here</option>
+                                                            <option value="Registration Fee">Registration Fee</option>
+                                                            <option value="Monthly Fee">Monthly Fee</option>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <select formControlName="month"  class="example-full-width" id="designation" style="width: 360px">
+                                                            <option value="" selected disabled hidden>Choose here</option>
+                                                            <option value="January">January</option>
+                                                            <option value="February">February</option>
+                                                            <option value="March">March</option>
+                                                            <option value="April">April</option>
+                                                            <option value="May">May</option>
+                                                            <option value="June">June</option>
+                                                            <option value="July">July</option>
+                                                            <option value="August">August</option>
+                                                            <option value="September">September</option>
+                                                            <option value="October">October</option>
+                                                            <option value="November">November</option>
+                                                            <option value="December">December</option>
+                                                        </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select  class="example-full-width" id="employeeDesignation2" formControlName="class_type" style="width: 270px;">
+                                                        <option *ngFor="let item of classModel" value='{{item.classId}}'>
+                                                            {{item.className}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Payment Date" type="date" formControlName="date">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Fee" type="text" formControlName="fee">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button style="margin-left: 200px" (click)="addPayments()" class="btn btn-primary btn-xs" color="primary"><i class="fa fa-edit"></i>Add Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        Student Id
+                                                    </th>
+                                                    <th>
+                                                        Student Name
+                                                    </th>
+                                                    <th>
+                                                        NIC
+                                                    </th>
+                                                    <th>
+                                                        Month
+                                                    </th>
+                                                    <th>
+                                                        Payment Date
+                                                    </th>
+                                                    <th>
+                                                        Amount
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of paymentModel">
+                                                        <td>
+                                                            {{item.studentId}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.name}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.nic}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.month}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.paymentDate | date: 'short'}}
+                                                        </td>
+                                                        <th>
+                                                            {{item.fee}}
+                                                        </th>
+                                                        <td style="margin-left: -10px">
+                                                            <button class="btn btn-primary btn-xs"  (click)="updatePayment(item.paymentId)" color="primary"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-xs" (click)="viewPayment(item.paymentId)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

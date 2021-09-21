@@ -1,0 +1,180 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="studentForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student Id" type="text" formControlName="studentId">
+                                    </mat-form-field>
+                                </div>
+                                <!--<div class="col-md-3">-->
+                                    <!--<mat-form-field class="example-full-width">-->
+                                        <!--<input matInput placeholder="Student Name" type="text" formControlName="name">-->
+                                    <!--</mat-form-field>-->
+                                <!--</div>-->
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Student NIC" type="text" formControlName="nic">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <select  class="example-full-width" id="employeeDesignation2" formControlName="classType" style="width: 270px;margin-top: 12px">
+                                            <option *ngFor="let item of classModel" value='{{item.className}}'>
+                                                {{item.className}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" style="margin-left: 140px" class="btn btn-primary"  (click)="onSubmitSearch()">Search</button>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!--Add New Student Attendance Details-->
+                            <div class="row" style="margin-top: -30px">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Add New Attendance</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input (change)="getStudentDetails()" matInput placeholder="Student Id" type="text" formControlName="studentId1">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student Name" type="text" formControlName="studentName1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Student NIC" type="text" formControlName="studentNIC1" readonly>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                <select  class="example-full-width" id="employeeDesignation" formControlName="classType" style="width: 360px;margin-top: 10px">
+                                                    <option *ngFor="let item of classModel" value='{{item.className}}'>
+                                                        {{item.className}}
+                                                    </option>
+                                                </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Date" type="date" formControlName="date">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Student In Time" type="time" formControlName="inTime">
+                                                        </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <mat-form-field class="example-full-width">
+                                                            <input matInput placeholder="Student Out Time" type="time" formControlName="outTime">
+                                                        </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button style="margin-left: 200px" (click)="addAttendance()" class="btn btn-primary btn-xs" color="primary"><i class="fa fa-edit"></i>Add Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        Student Id
+                                                    </th>
+                                                    <th>
+                                                        Student Name
+                                                    </th>
+                                                    <th>
+                                                        Class Name
+                                                    </th>
+                                                    <th>
+                                                       Date
+                                                    </th>
+                                                    <th>
+                                                        In Time
+                                                    </th>
+                                                    <th>
+                                                        Out Time
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of attendanceSerchModel ">
+                                                        <td>
+                                                            {{item.studentId}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.firstName + " " + item.middleName +" "+item.lastName}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.classType}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.date | date: 'shortDate'}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.inTime}}
+                                                        </td>
+                                                        <th>
+                                                            {{item.outTime}}
+                                                        </th>
+                                                        <td style="margin-left: -10px">
+                                                            <button class="btn btn-primary btn-xs"  (click)="updateStudent(item.attendanceId)" color="primary"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-xs" (click)="viewStudent(item.attendanceId)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

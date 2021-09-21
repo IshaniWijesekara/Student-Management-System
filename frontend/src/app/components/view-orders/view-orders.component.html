@@ -1,0 +1,130 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <H3>View Daily Orders</H3>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                   
+                                </div>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="form-group" style="width: 50%;">
+                                            <input type="date" class="form-control" name="txtBirthDay"  id="txtBirthDay" placeholder="Enter Birthday">
+                                        </div>
+                                            <button type="button" class="btn btn-primary"  (click)="onSubmitSearch(order.date)">Search</button>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        Order ID
+                                                    </th>
+                                                    <th>
+                                                       Product Name
+                                                    </th>
+                                                    <th>
+                                                       QTY
+                                                    </th>
+                                                    <th>
+                                                      Price
+                                                    </th>
+                                                    <th>
+                                                       Date
+                                                    </th>
+                                                   
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let order of orders">
+                                                        <td>{{order.oid}}</td>
+                                                        <td>{{order.itemName}}</td>
+                                                        <td>{{order.qty}}</td>
+                                                        <td>{{order.totalPrice}}</td>
+                                                        <td>{{order.date}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <H3>View Daily Profit</H3>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                   
+                                </div>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="form-group" style="width: 50%;">
+                                            <input type="date" class="form-control" name="txtBirthDay" id="txtBirthDay" placeholder="Enter Birthday">
+                                        </div>
+                                            <button type="button" class="btn btn-primary"  (click)="onSubmitSearch()">Search</button>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                        Order Date
+                                                    </th>
+                                                    <th>
+                                                       Total Price
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                       
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>
+        </div>

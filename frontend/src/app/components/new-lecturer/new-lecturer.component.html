@@ -1,0 +1,146 @@
+<div class="main-content" style="margin-top: 0px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="lectureForm">
+                            <div class="row">
+                            </div>
+                            <br>
+
+                            <!--Add New Lecturer Details-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                            <h5>Add New Lecturer</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Lecturer Name" type="text" formControlName="name">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Email" type="text" formControlName="email">
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.email.touched && FormControls.email.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.required" class="errors">Email is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.email.errors.pattern" class="errors">Please enter a valid Email</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="NIC" type="text" formControlName="nic" >
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.nic.touched && FormControls.nic.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.required" class="errors">NIC is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.nic.errors.pattern" class="errors">Please enter a valid NIC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Address" type="text" formControlName="address">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput placeholder="Contact No" type="text" formControlName="contactNo">
+                                                    </mat-form-field>
+                                                    <div *ngIf="FormControls.contactNo.touched && FormControls.contactNo.errors" class="text-danger font-small-2">
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.required" class="errors">Contact No is required</span>
+                                                        <span class="text-danger font-small-2" *ngIf="FormControls.contactNo.errors.pattern" class="errors">Please enter a valid Contact No</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                        <select  class="example-full-width" id="employeeDesignation" formControlName="subject" style="width: 360px;margin-top: 10px">
+                                                            <option *ngFor="let item of subjectModel" value='{{item.name}}'>
+                                                                {{item.name}}
+                                                            </option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button style="margin-left: 200px" (click)="addDetails()" class="btn btn-primary btn-xs" color="primary"><i class="fa fa-edit"></i>Add Details</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                    <th>
+                                                       Lecturer Name
+                                                    </th>
+                                                    <th>
+                                                      NIC
+                                                    </th>
+                                                    <th>
+                                                        Email
+                                                    </th>
+                                                    <th>
+                                                       Address
+                                                    </th>
+                                                    <th>
+                                                        Contact No
+                                                    </th>
+                                                    <th>
+                                                        Subject
+                                                    </th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of lecturerModel ">
+                                                        <td>
+                                                            {{item.name}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.nic}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.email}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.address}}
+                                                        </td>
+                                                        <td>
+                                                            {{item.contactNo}}
+                                                        </td>
+                                                        <th>
+                                                            {{item.subject}}
+                                                        </th>
+                                                        <td style="margin-left: -10px">
+                                                            <button class="btn btn-primary btn-xs"  (click)="updateLecturer(item.id)" color="primary"><i class="fa fa-edit"></i></button>
+                                                            <button class="btn btn-success btn-xs" (click)="viewLecturer(item.id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

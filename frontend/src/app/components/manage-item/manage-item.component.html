@@ -1,0 +1,101 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <!-- <h1 class="m-0 text-dark">Manage Items</h1> -->
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Manage Items</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-12">
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Item Information</h3>
+
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col col-12">
+                                <form #frmSubjects="ngForm" (ngSubmit)="saveItem()">
+<!--                                    <p class="form-group">-->
+<!--                                        <label for="txtId">Item ID</label>-->
+<!--                                        <input ng-disabled="all" [disabled]="manuallySelected" name="txtId" [(ngModel)]="selectedItem.itemCode" id="txtId"-->
+<!--                                               class="form-control">-->
+<!--                                    </p>-->
+
+                                    <p class="form-group">
+                                        <label for="txtDescription">Item Description</label>
+                                        <input name="txtName" [(ngModel)]="selectedItem.description" id="txtDescription" class="form-control">
+                                    </p>
+
+                                    <p class="form-group">
+                                        <label for="txtQty">QTY</label>
+                                        <input name="txtQTY" [(ngModel)]="selectedItem.qty" id="txtQty"
+                                               class="form-control">
+                                    </p>
+
+                                    <p class="form-group">
+                                        <label for="txtPrice">Price</label>
+                                        <input name="txtPrice" [(ngModel)]="selectedItem.unitPrice" id="txtPrice"
+                                               class="form-control">
+                                    </p>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        &nbsp;
+                                        <button (click)="clear()" type="button" class="btn btn-warning">Clear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            <div class="col-md-6 col-12">
+                <table id="tblItems" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Description</th>
+                        <th>QTY</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of items"
+                        (click)="selectItem(item)" [class.selected]="item==selectedItem">
+                        <td>{{item.itemCode}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.qty}}</td>
+                        <td>{{item.unitPrice}}</td>
+                        <td>
+                            <i (click)="deleteItem(item.itemCode)" class="fa fa-trash fa-2x"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="attendane_progress1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="feb71040-8ad6-4032-bcf4-337a70be6713">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="class_type" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select a.`student_id`,s.`first_name`,s.`nic`,a.`date`,a.`in_time`,a.`month` from `attendance` a
+inner join `student` s
+where s.`student_id` = a.`student_id`
+and
+a.`class_type` = $P{class_type}
+and
+a.`month` = $P{month} Order by a.`student_id`]]>
+	</queryString>
+	<field name="student_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[student_id]]></fieldDescription>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[first_name]]></fieldDescription>
+	</field>
+	<field name="nic" class="java.lang.String">
+		<fieldDescription><![CDATA[nic]]></fieldDescription>
+	</field>
+	<field name="date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="in_time" class="java.lang.String">
+		<fieldDescription><![CDATA[in_time]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.String">
+		<fieldDescription><![CDATA[month]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="452" y="46" width="100" height="20" uuid="4041d288-330e-4225-9d3d-e4253b9d63fa"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Attendance Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="30" width="241" height="20" uuid="2e3a3b98-53a2-404d-a44e-21310f206408"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[17A Central Road, 12. City: Colombo]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="47" height="42" uuid="583917f6-1b1f-4fb4-8519-5de5eb437967"/>
+				<imageExpression><![CDATA["C:\\Users\\acer\\Pictures\\logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="59" y="12" width="265" height="20" uuid="ef4849cb-b7ef-444c-96c4-5681dd680151"/>
+				<textElement>
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thakshilawa Hiegher Educational Institution]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="46" width="100" height="20" uuid="db84c1ba-99a3-4ce3-ba86-18233bb417c7"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[0912345871]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="69" height="20" uuid="7c5ed83a-5e7e-4a26-aec1-106fed984728"/>
+				<text><![CDATA[student_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="0" width="174" height="20" uuid="138d023d-a1fb-443b-9d48-58bc749cbad0"/>
+				<text><![CDATA[first_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="2" width="69" height="20" uuid="7591a289-05ee-4c3f-b4e5-93d7f01db8c5"/>
+				<text><![CDATA[nic]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="1" width="83" height="19" uuid="29dc8a92-3915-47e8-b0ae-6a8916e5a55d"/>
+				<text><![CDATA[date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="88" height="20" uuid="e650ebce-967b-4206-9f14-95e870197014"/>
+				<text><![CDATA[in_time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="0" width="69" height="20" uuid="174dc5c4-c1ca-48f3-8d28-68cacb8ff8de"/>
+				<text><![CDATA[month]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="69" height="20" uuid="fe43a212-4801-4cd6-8c6e-b727f9529c27"/>
+				<textFieldExpression><![CDATA[$F{student_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="0" width="174" height="20" uuid="63a0ce3d-5f59-4380-a697-9aa6b37f3dd0"/>
+				<textFieldExpression><![CDATA[$F{first_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="1" width="69" height="20" uuid="ec9eb76f-a8a7-4fac-b67e-0cb160f5a1fc"/>
+				<textFieldExpression><![CDATA[$F{nic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="1" width="83" height="19" uuid="2484930c-6dcf-44dc-89dd-1fb8193e7e2b"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="88" height="20" uuid="13f39f4f-d9da-4360-b654-0f200c5f36b5"/>
+				<textFieldExpression><![CDATA[$F{in_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="0" width="69" height="20" uuid="458812de-2fe2-44b5-9a55-b55b68c67581"/>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
